@@ -2,9 +2,9 @@ import React from "react"
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { PlainTextPlugin } from "@lexical/react/LexicalPlainTextPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
-import ExampleTheme from "./themes/ExampleTheme";
-import ActionsPlugin from "./plugins/ActionsPlugin";
-import SpeechToTextPlugin from "./plugins/SpeechToTextPlugin";
+import ExampleTheme from "../themes/ExampleTheme";
+import ActionsPlugin from "../plugins/ActionsPlugin";
+import SpeechToTextPlugin from "../plugins/SpeechToTextPlugin";
 
 const editorConfig = {
   theme: ExampleTheme,
@@ -52,9 +52,9 @@ function Placeholder() {
 // import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin"
 // import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin"
 // import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary"
-// import TreeViewPlugin from "./plugins/TreeViewPlugin"
-// import EmoticonPlugin from "./plugins/EmoticonPlugin"
-// import MyCustomAutoFocusPlugin from "./plugins/MyCustomAutoFocusPlugin"
+// import TreeViewPlugin from "../plugins/TreeViewPlugin"
+// import EmoticonPlugin from "../plugins/EmoticonPlugin"
+// import MyCustomAutoFocusPlugin from "../plugins/MyCustomAutoFocusPlugin"
 // import editorConfig from "./editorConfig"
 // import onChange from "./onChange"
 

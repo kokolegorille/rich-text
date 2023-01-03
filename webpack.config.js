@@ -112,7 +112,7 @@ module.exports = (_env, options) => {
             // hot: true,
             historyApiFallback: true,
             open: true,
-            port: 3000,
+            port: 8080,
         }
     }
 }
