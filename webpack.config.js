@@ -3,7 +3,7 @@ const Webpack = require("webpack")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
 const TerserPlugin = require("terser-webpack-plugin")
-// const CopyWebpackPlugin = require("copy-webpack-plugin")
+const CopyWebpackPlugin = require("copy-webpack-plugin")
 
 // Dev server
 const HtmlWebpackPlugin = require("html-webpack-plugin")
@@ -16,21 +16,21 @@ module.exports = (_env, options) => {
         stats: "minimal",
         mode,
         devtool: devMode ? "eval-cheap-module-source-map" : undefined,
-        // optimization: {
-        //     splitChunks: {
-        //         cacheGroups: {
-        //             defaultVendors: {
-        //                 test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
-        //                 name: "vendor",
-        //                 chunks: "initial",
-        //             }
-        //         }
-        //     },
-        //     minimizer: [
-        //         new TerserPlugin({}),
-        //         new CssMinimizerPlugin({})
-        //     ]
-        // },
+        optimization: {
+            // splitChunks: {
+            //     cacheGroups: {
+            //         defaultVendors: {
+            //             test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+            //             name: "vendor",
+            //             chunks: "initial",
+            //         }
+            //     }
+            // },
+            minimizer: [
+                new TerserPlugin({}),
+                new CssMinimizerPlugin({})
+            ]
+        },
         entry: {
             bundle: "./src/index.js"
         },
@@ -77,11 +77,11 @@ module.exports = (_env, options) => {
             ]
         },
         plugins: [
-            // new CopyWebpackPlugin({
-            //     patterns: [
-            //         {from: "./assets", to: path.join(__dirname, "dist", "assets")}
-            //     ]
-            // }),
+            new CopyWebpackPlugin({
+                patterns: [
+                    {from: "./static", to: path.join(__dirname, "dist", "./")}
+                ]
+            }),
             new HtmlWebpackPlugin({
                 filename: "index.html",
                 template: "./src/index.html",

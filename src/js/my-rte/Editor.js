@@ -1,16 +1,18 @@
 import React from "react"
+import { LexicalComposer } from "@lexical/react/LexicalComposer";
+import { PlainTextPlugin } from "@lexical/react/LexicalPlainTextPlugin";
+import { ContentEditable } from "@lexical/react/LexicalContentEditable";
+import ExampleTheme from "./themes/ExampleTheme";
+import ActionsPlugin from "./plugins/ActionsPlugin";
+import SpeechToTextPlugin from "./plugins/SpeechToTextPlugin";
 
-import { LexicalComposer } from "@lexical/react/LexicalComposer"
-import { PlainTextPlugin } from "@lexical/react/LexicalPlainTextPlugin"
-import { ContentEditable } from "@lexical/react/LexicalContentEditable"
-import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin"
-import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin"
-import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary"
-import TreeViewPlugin from "./plugins/TreeViewPlugin"
-import EmoticonPlugin from "./plugins/EmoticonPlugin"
-import MyCustomAutoFocusPlugin from "./plugins/MyCustomAutoFocusPlugin"
-import editorConfig from "./editorConfig"
-import onChange from "./onChange"
+const editorConfig = {
+  theme: ExampleTheme,
+  onError(error) {
+    throw error;
+  },
+  nodes: []
+};
 
 export default function Editor() {
   return (
@@ -19,21 +21,68 @@ export default function Editor() {
         <PlainTextPlugin
           contentEditable={<ContentEditable className="editor-input" />}
           placeholder={<Placeholder />}
-          ErrorBoundary={LexicalErrorBoundary}
         />
-        <OnChangePlugin onChange={onChange} />
-        <HistoryPlugin />
-        <TreeViewPlugin />
-        <EmoticonPlugin />
-        <MyCustomAutoFocusPlugin />
+
+        <ActionsPlugin />
+        <SpeechToTextPlugin />
       </div>
     </LexicalComposer>
-  )
+  );
 }
 
 function Placeholder() {
-  return <div className="editor-placeholder">Enter some plain text...</div>
+  return (
+    <div className="editor-placeholder">
+      Play around with the speech to text button on the bottom right...{" "}
+    </div>
+  );
 }
+
+
+
+
+
+// WITH TREE VIEW
+
+// import React from "react"
+
+// import { LexicalComposer } from "@lexical/react/LexicalComposer"
+// import { PlainTextPlugin } from "@lexical/react/LexicalPlainTextPlugin"
+// import { ContentEditable } from "@lexical/react/LexicalContentEditable"
+// import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin"
+// import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin"
+// import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary"
+// import TreeViewPlugin from "./plugins/TreeViewPlugin"
+// import EmoticonPlugin from "./plugins/EmoticonPlugin"
+// import MyCustomAutoFocusPlugin from "./plugins/MyCustomAutoFocusPlugin"
+// import editorConfig from "./editorConfig"
+// import onChange from "./onChange"
+
+// export default function Editor() {
+//   return (
+//     <LexicalComposer initialConfig={editorConfig}>
+//       <div className="editor-container">
+//         <PlainTextPlugin
+//           contentEditable={<ContentEditable className="editor-input" />}
+//           placeholder={<Placeholder />}
+//           ErrorBoundary={LexicalErrorBoundary}
+//         />
+//         <OnChangePlugin onChange={onChange} />
+//         <HistoryPlugin />
+//         <TreeViewPlugin />
+//         <EmoticonPlugin />
+//         <MyCustomAutoFocusPlugin />
+//       </div>
+//     </LexicalComposer>
+//   )
+// }
+
+// function Placeholder() {
+//   return <div className="editor-placeholder">Enter some plain text...</div>
+// }
+
+
+
 
 // Basic Plain Text
 
