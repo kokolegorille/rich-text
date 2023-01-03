@@ -14,6 +14,8 @@
     "lint": "./node_modules/.bin/eslint src --fix"
   },
   "dependencies": {
+    "@lexical/react": "^0.7.5",
+    "lexical": "^0.7.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

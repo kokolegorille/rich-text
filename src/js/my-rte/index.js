@@ -1,1 +1,3 @@
-export { default } from "./my-rte";
+
+
+export { default } from "./my-rte"
