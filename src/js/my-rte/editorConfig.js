@@ -1,4 +1,4 @@
-import { EmojiNode } from "./nodes/EmojiNode"
+import { EmojiNode } from "../nodes/EmojiNode"
 import ExampleTheme from "../themes/ExampleTheme"
 
 const editorConfig = {
