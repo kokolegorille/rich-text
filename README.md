@@ -6,3 +6,7 @@ Draftjs is not maintained...
 Lexical is meant to succeed to Draftjs
 
 Create a web component for this
+
+Demos
+
+https://lexical.dev/
